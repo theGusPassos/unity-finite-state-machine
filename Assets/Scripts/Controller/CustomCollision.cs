@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.Physics
+namespace Assets.Scripts.Controller
 {
     [RequireComponent(typeof(BoxCollider2D))]
     public class CustomCollision : MonoBehaviour
