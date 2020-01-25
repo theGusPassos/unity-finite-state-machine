@@ -27,5 +27,7 @@ namespace Assets.Scripts.FiniteStateMachine.Awareness
         }
 
         public T GetComponentFromTarget<T>() => target.GetComponent<T>();
+
+        public void ResetTarget() => target = null;
     }
 }

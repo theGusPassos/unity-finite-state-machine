@@ -7,5 +7,6 @@
         float GetTargetDistance();
         float GetTargetHorizontalDistance();
         T GetComponentFromTarget<T>();
+        void ResetTarget();
     }
 }

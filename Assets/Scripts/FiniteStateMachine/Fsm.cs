@@ -1,10 +1,13 @@
 ﻿using Assets.Scripts.FiniteStateMachine.Awareness;
+using Assets.Scripts.FiniteStateMachine.DebugTools;
 using UnityEngine;
 
 namespace Assets.Scripts.FiniteStateMachine
 {
     public abstract class Fsm : MonoBehaviour
     {
+        [SerializeField] private AiStateLogger logger;
+
         public Controller.CharacterController controller;
         public IAwareness awareness;
         private State currentState;
@@ -12,6 +15,7 @@ namespace Assets.Scripts.FiniteStateMachine
 
         private void Awake()
         {
+            logger = GetComponent<AiStateLogger>();
             controller = GetComponent<Controller.CharacterController>();
             if (controller == null)
                 throw new System.Exception("IAiController not found in " + gameObject.name);
@@ -39,6 +43,8 @@ namespace Assets.Scripts.FiniteStateMachine
         {
             currentState = state;
             currentState.OnEnter();
+
+            if (logger != null) logger.SetCurrentState(currentState.ToString());
         }
 
         public void ChangeState(State newState)
@@ -48,6 +54,8 @@ namespace Assets.Scripts.FiniteStateMachine
             currentState.OnExit();
             newState.OnEnter();
             currentState = newState;
+           
+            if (logger != null) logger.SetCurrentState(currentState.ToString());
         }
 
         private void TestMutualTransitions()

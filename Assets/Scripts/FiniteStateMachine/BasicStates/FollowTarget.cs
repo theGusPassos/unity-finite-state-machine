@@ -30,6 +30,7 @@
 
         public override void OnExit()
         {
+            fsm.awareness.ResetTarget();
             fsm.controller.SetXInput(0);
         }
 
