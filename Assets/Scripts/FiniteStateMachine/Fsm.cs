@@ -6,7 +6,7 @@ namespace Assets.Scripts.FiniteStateMachine
     public abstract class Fsm : MonoBehaviour
     {
         public Controller.CharacterController controller;
-        public IAwareness playerAwareness;
+        public IAwareness awareness;
         private State currentState;
         private Transition[] mutualTransitions;
 
@@ -20,6 +20,8 @@ namespace Assets.Scripts.FiniteStateMachine
         }
 
         protected abstract void SetupStates();
+
+        protected void SetAwareness(IAwareness awareness) => this.awareness = awareness;
 
         private void Update()
         {

@@ -11,7 +11,7 @@
 
         protected override void Execute()
         {
-            int targetDirection = fsm.playerAwareness.GetTargetDirection();
+            int targetDirection = fsm.awareness.GetTargetDirection();
 
             if (targetDirection != lastDirection || stopped)
             {
