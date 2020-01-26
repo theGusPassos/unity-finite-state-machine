@@ -52,12 +52,12 @@ namespace Assets.Scripts.Controller
             }
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
             currentVelocity.x = xInput * moveSpeed;
-            currentVelocity.y += gravity * Time.deltaTime;
+            currentVelocity.y += gravity * Time.fixedDeltaTime;
 
-            Vector2 velocity = currentVelocity * Time.deltaTime;
+            Vector2 velocity = currentVelocity * Time.fixedDeltaTime;
 
             collision.UpdateRayOrigins();
             collision.info.Reset();
