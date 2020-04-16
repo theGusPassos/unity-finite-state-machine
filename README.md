@@ -2,6 +2,8 @@
 
 An example of finite state machines being implemented in a 2D Unity game
 
+![Unity Finite State Machine Demo](demo/unity-state-machine.gif)
+
 The following sample has a playable character and an character controlled by the finite state machine. The NPC will patrol until the playable character is within his field of view, and will stop following when the character is out his field of view.
 
 ## References
